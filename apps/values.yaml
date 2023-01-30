@@ -4,3 +4,14 @@ spec:
   source:
     repoURL: https://github.com/argoproj/argocd-example-apps
     targetRevision: HEAD
+apps:
+  sync_waves: {}
+  helm_guestbook:
+    appAnnotations:
+      argocd.argoproj.io/sync-wave: "-100"
+  helm_hooks:
+    appAnnotations:
+      argocd.argoproj.io/sync-wave: "-100"
+
+
+

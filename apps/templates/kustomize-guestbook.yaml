@@ -5,6 +5,10 @@ metadata:
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
+  {{- if .Values.apps.kustomize_guestbook.appAnnotations }}
+  annotations:
+  {{ toYaml .Values.apps.kustomize_guestbook.appAnnotations | nindent 2 }}
+  {{- end }}
 spec:
   destination:
     namespace: kustomize-guestbook

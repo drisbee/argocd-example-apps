@@ -5,6 +5,10 @@ metadata:
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
+  {{- if .Values.apps.sync_waves.appAnnotations }}
+  annotations:
+  {{ toYaml .Values.apps.sync_waves.appAnnotations | nindent 2 }}
+  {{- end }}
 spec:
   destination:
     namespace: sync-waves

@@ -5,6 +5,11 @@ metadata:
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
+  {{- if .Values.apps.helm_guestbook.appAnnotations }}
+  annotations:
+  {{ toYaml .Values.apps.helm_guestbook.appAnnotations | nindent 2 }}
+  {{- end }}
+
 spec:
   destination:
     namespace: helm-guestbook

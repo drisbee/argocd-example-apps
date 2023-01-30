@@ -5,6 +5,10 @@ metadata:
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
+  {{- if .Values.apps.helm_hooks.appAnnotations }}
+  annotations:
+  {{ toYaml .Values.apps.helm_hooks.appAnnotations | nindent 2 }}
+  {{- end }}
 spec:
   destination:
     namespace: helm-hooks
