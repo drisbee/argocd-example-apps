@@ -12,6 +12,7 @@ apps:
   helm_hooks:
     appAnnotations:
       argocd.argoproj.io/sync-wave: "-100"
+  kustomize_guestbook: {}
 
 
 
